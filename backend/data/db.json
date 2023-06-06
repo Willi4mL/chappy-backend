@@ -1,0 +1,56 @@
+{
+	"users": [
+		{
+			"id": 1,
+			"username": "admin",
+			"password": "password"
+		},
+		{
+			"id": 2,
+			"username": "guest",
+			"password": "pass"
+		},
+		{
+			"id": 3,
+			"username": "john",
+			"password": "john123"
+		},
+		{
+			"id": 4,
+			"username": "emma",
+			"password": "emma456"
+		}
+	],
+	"channels": [
+		{
+			"id": 5,
+			"name": "channel",
+			"access": [
+				"admin",
+				"guest"
+			]
+		},
+		{
+			"id": 6,
+			"name": "general",
+			"access": [
+				"admin",
+				"guest",
+				"john",
+				"emma"
+			]
+		}
+	],
+	"messages": [
+		{
+			"id": 7,
+			"author": "kalle",
+			"message": "Välkommen"
+		},
+		{
+			"id": 8,
+			"author": "john",
+			"message": "Hej allihopa!"
+		}
+	]
+}
