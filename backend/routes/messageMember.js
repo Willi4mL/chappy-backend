@@ -6,7 +6,7 @@ const router = express.Router()
 const db = getDb()
 
 function findMessages() {
-    const channels = db.data.channels
+    const channels = db.data.channelsMembers
     const messsages = channels.flatMap(channel => channel.messages)
     return messsages
 }
@@ -43,7 +43,7 @@ router.delete('/:id', async (req, res) => {
         return
     }
     await db.read();
-    const channels = db.data.channels
+    const channels = db.data.channelsMembers
 
     for (let i = 0; i < channels.length; i++) {
         const messages = channels[i].messages
@@ -64,14 +64,14 @@ router.post('/', async (req, res) => {
     let addMessage = req.body
 
     await db.read()
-    const channels = db.data.channels;
+    const channels = db.data.channelsMembers
     for (let i = 0; i < channels.length; i++) {
-        const messages = channels[i].messages;
-        addMessage.id = generateId();
-        messages.push(addMessage);
-        await db.write();
-        res.send({ id: addMessage.id });
-        return;
+        const messages = channels[i].messages
+        addMessage.id = generateId()
+        messages.push(addMessage)
+        await db.write()
+        res.send({ id: addMessage.id })
+        return
     }
 })
 
@@ -80,7 +80,7 @@ router.put('/:id', async (req, res) => {
     const id = Number(req.params.id)
 
     await db.read()
-    const channels = db.data.channels
+    const channels = db.data.channelsMembers
 
     for (let i = 0; i < channels.length; i++) {
         const messages = channels[i].messages

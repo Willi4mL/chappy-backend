@@ -8,6 +8,8 @@ import userRouter from './routes/user.js'
 import messageRouter from './routes/messages.js'
 import channelRouter from './routes/channels.js'
 import homeRouter from './routes/home.js'
+import channelMemeberRouter from './routes/channelsMember.js'
+import messageMemberRouter from './routes/messageMember.js'
 
 const port = process.env.PORT || 1414
 const app = express()
@@ -27,6 +29,8 @@ app.use('/api/home', homeRouter)
 app.use('/api/users', userRouter)
 app.use('/api/messages', messageRouter)
 app.use('/api/channels', channelRouter)
+app.use('/api/channelsmember', channelMemeberRouter)
+app.use('/api/messagesmember', messageMemberRouter)
 
 app.listen(port, () => {
 	console.log(`Server is listening on port ${port}...`)
