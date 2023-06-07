@@ -23,6 +23,24 @@
   ],
   "channelsMembers": [
     {
+      
+      "id": 5,
+      "name": "grupp1",
+      "access": [
+        "admin",
+        "guest",
+        "john",
+        "emma"
+      ],
+      "messages": [
+        {
+          "author": "",
+          "message": "Kul",
+          "id": 7
+        }
+      ]
+    },
+    {
       "id": 6,
       "name": "grupp2",
       "access": [
@@ -34,7 +52,7 @@
       "messages": [
         {
           "author": "",
-          "message": "Kul",
+          "message": "Bolla i solen",
           "id": 7
         }
       ]
@@ -60,13 +78,6 @@
           "message": "Hej allihopa!"
         }
       ]
-    },
-    {
-      "name": "Anonym",
-      "access": [
-        "guest"
-      ],
-      "id": 818258
     }
   ],
   "channels": [

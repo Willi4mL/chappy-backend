@@ -1,9 +1,14 @@
 import { useRecoilState } from 'recoil'
-import { isLoginState } from '../../backend/data/recoil.js'
+import { isGruppOneState, isGruppThreeState, isGruppTwoState, isKodaState, isLoginState, isRandomState } from '../../backend/data/recoil.js'
 import { useEffect } from 'react';
 
 const Login = () => {
   const [isLogin, setIsLogin] = useRecoilState(isLoginState)
+  const [kodaMessages, setKodaMessages] = useRecoilState(isKodaState)
+  const [ranomMessages, setRandomMessages] = useRecoilState(isRandomState)
+  const [gruppOneMessages, setGruppOneMessages] = useRecoilState(isGruppOneState)
+  const [gruppTwoMessages, setGruppTwoMessages] = useRecoilState(isGruppTwoState)
+  const [gruppThreeMessages, setGruppThreeMessages] = useRecoilState(isGruppThreeState)
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -20,11 +25,15 @@ const Login = () => {
   }, [])
 
   const handleLogin = () => {
-    setIsLogin(true);
+    setIsLogin(true)
   }
 
   const handleLogOut = () => {
-    setIsLogin(false);
+    setIsLogin(false)
+    setKodaMessages(false)
+    setRandomMessages(false)
+    setGruppOneMessages(false)
+    setGruppTwoMessages(false)
   }
 
 

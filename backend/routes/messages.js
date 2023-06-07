@@ -7,8 +7,8 @@ const db = getDb()
 
 function findMessages() {
     const channels = db.data.channels
-    const messsages = channels.flatMap(channel => channel.messages)
-    return messsages
+    const messages = channels.flatMap(channel => channel.messages)
+    return messages
 }
 
 ///GET
@@ -32,7 +32,7 @@ router.get('/:id', async (req, res) => {
     } else {
         res.status(400).send('Invalid id.')
     }
-});
+})
 
 ///DELETE
 router.delete('/:id', async (req, res) => {

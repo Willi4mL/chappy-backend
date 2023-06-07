@@ -13,13 +13,10 @@ function App() {
       </header>
       <main>
         <Channel />
-        <div className="chat-area">
-          <Message />
-          <section>
-            <input type="text" placeholder="Ditt meddelande..." />
-            <button> Skicka </button>
-          </section>
-        </div>
+        
+          {/* <Message /> */}
+          
+      
       </main>
 
     </>
