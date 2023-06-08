@@ -18,17 +18,14 @@ const Message = () => {
 				<section className="heading">
 					Chattar i <span className="chat-name"> #koda </span>
 				</section>
-				<div className="chat-area">
-					{kodaMessages.messages.map(message => (
-						<section className="history" key={message.id}>
-							<section className="align-right">
-								<p> {message.author}: {message.message} </p>
-								<p> 17:46 </p>
-							</section>
+				{kodaMessages.messages.map(message => (
+					<section className="history" key={message.id}>
+						<section className="align-right">
+							<p> {message.author}: {message.message} </p>
+							<p> 17:46 </p>
 						</section>
-					))}
-					{/* <Send /> */}
-				</div>
+					</section>
+				))}
 			</>}
 
 			{/* Random message */}
@@ -36,20 +33,14 @@ const Message = () => {
 				<section className="heading">
 					Chattar i <span className="chat-name"> #random </span>
 				</section>
-				<div className="chat-area">
-					{randomMessages.messages.map(message => (
-						<section className="history" key={message.id}>
-							<section className="align-right">
-								<p> {message.author}: {message.message} </p>
-								<p> 17:46 </p>
-							</section>
+				{randomMessages.messagesRandom.map(message => (
+					<section className="history" key={message.id}>
+						<section className="align-right">
+							<p> {message.author}: {message.message} </p>
+							<p> 17:46 </p>
 						</section>
-					))}
-					<section>
-						<input type="text" placeholder="Ditt meddelande..." />
-						<button> Skicka </button>
 					</section>
-				</div>
+				))}
 			</>}
 
 			{/* Grupp 1 message */}

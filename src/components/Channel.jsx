@@ -33,9 +33,9 @@ const Channel = () => {
 	}, [])
 
 	const handleClickKoda = (event) => {
-		event.preventDefault();
-		fetchKodaMessage();
-	  };
+		event.preventDefault()
+		fetchKodaMessage()
+	  }
 
 	// Fetch random
 	const fetchRandomMessage = async () => {
@@ -52,6 +52,14 @@ const Channel = () => {
 			console.log('Could not fetch messages' + error.message)
 		}
 	}
+	useEffect(() => {
+		fetchRandomMessage()
+	}, [])
+
+	const handleClickRandom = (event) => {
+		event.preventDefault()
+		fetchRandomMessage()
+	  }
 
 	// Fetch grupp1
 	const fetchGruppOneMessage = async () => {
@@ -108,7 +116,7 @@ const Channel = () => {
 				<ul>
 					<li> [Kanaler] </li>
 					<li><a href="#" onClick={handleClickKoda}>#koda </a></li>
-					<li><a href="#" onClick={fetchRandomMessage}> #random </a> </li>
+					<li><a href="#" onClick={handleClickRandom}> #random </a> </li>
 					{!isLogin ? (
 						<>
 							<li className="locked"><a href="#"> #grupp1 🔒 </a></li>
@@ -131,9 +139,7 @@ const Channel = () => {
 					)}
 				</ul>
 			</nav>
-			<Message />
-			<Send fetchKodaMessage={fetchKodaMessage} />
-
+			<Send fetchMessage={{fetchKodaMessage, fetchRandomMessage}} />
 		</>
 	)
 }

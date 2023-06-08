@@ -96,19 +96,49 @@
         },
         {
           "author": "Anonym",
-          "message": "ren",
-          "id": 684297
+          "message": "klen",
+          "id": 927366
+        },
+        {
+          "author": "Anonym",
+          "message": "var",
+          "id": 780355
+        },
+        {
+          "author": "Anonym",
+          "message": "kola",
+          "id": 424593
         }
       ]
     },
     {
       "id": 9,
       "name": "random",
-      "messages": [
+      "messagesRandom": [
         {
           "author": "Anonym",
           "message": "Mat",
           "id": 10
+        },
+        {
+          "author": "Anonym",
+          "message": "re",
+          "id": 413332
+        },
+        {
+          "author": "Anonym",
+          "message": "test",
+          "id": 530714
+        },
+        {
+          "author": "Anonym",
+          "message": "dre",
+          "id": 553140
+        },
+        {
+          "author": "Anonym",
+          "message": "fisk",
+          "id": 912801
         }
       ]
     },
