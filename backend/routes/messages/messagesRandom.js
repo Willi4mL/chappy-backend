@@ -37,27 +37,32 @@ router.get('/:id', async (req, res) => {
 ///DELETE
 router.delete('/:id', async (req, res) => {
     const id = Number(req.params.id)
-
+  
     if (isNaN(id) || id < 0) {
-        res.sendStatus(400)
-        return
+      res.sendStatus(400)
+      return
     }
-    await db.read();
+  
+    await db.read()
     const channels = db.data.channels
-
+  
     for (let i = 0; i < channels.length; i++) {
-        const messages = channels[i].messagesRandom
+      const messages = channels[i].messagesRandom
+  
+      if (messages) {
         const index = messages.findIndex(message => message.id === id)
         if (index !== -1) {
-            messages.splice(index, 1)
-            await db.write()
-            res.sendStatus(200)
-            return;
+          messages.splice(index, 1)
+          await db.write()
+          res.sendStatus(200)
+          return
         }
+      }
     }
-
+  
     res.sendStatus(200)
-})
+  })
+  
 
 ///POST
 router.post('/', async (req, res) => {
@@ -68,15 +73,15 @@ router.post('/', async (req, res) => {
     for (let i = 0; i < channels.length; i++) {
         const channel = channels[i]
 
-		if(channel.messagesRandom) {
-			const messages = channel.messagesRandom
-        addMessage.id = generateId()
-        messages.push(addMessage)
-        await db.write()
-        res.send({ id: addMessage.id })
-        return;
+        if (channel.messagesRandom) {
+            const messages = channel.messagesRandom
+            addMessage.id = generateId()
+            messages.push(addMessage)
+            await db.write()
+            res.send({ id: addMessage.id })
+            return;
+        }
     }
-}
 })
 
 ///PUT

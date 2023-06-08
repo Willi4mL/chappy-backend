@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { isKodaState, isRandomState, isGruppOneState, isGruppTwoState, isGruppThreeState } from "../../backend/data/recoil"
 import { useRecoilState } from "recoil"
 import Message from "./Message"
@@ -28,7 +28,7 @@ const Send = ({ fetchMessage }) => {
 				}
 			})
 
-			fetchKodaMessage()
+			fetchMessage()
 		} catch (error) {
 			console.log('Could not post message: ' + error.message)
 		}
@@ -49,7 +49,7 @@ const Send = ({ fetchMessage }) => {
 				}
 			})
 
-			fetchRandomMessage()
+			fetchMessage()
 		} catch (error) {
 			console.log('Could not post message: ' + error.message)
 		}
@@ -71,7 +71,7 @@ const Send = ({ fetchMessage }) => {
 				}
 			})
 
-			fetchGruppOneMessage()
+			fetchMessage()
 		} catch (error) {
 			console.log('Could not post message: ' + error.message)
 		}
@@ -91,7 +91,7 @@ const Send = ({ fetchMessage }) => {
 				}
 			})
 
-			fetchGruppTwoMessage()
+			fetchMessage()
 		} catch (error) {
 			console.log('Could not post message: ' + error.message)
 		}
@@ -112,7 +112,7 @@ const Send = ({ fetchMessage }) => {
 				}
 			})
 
-			fetchGruppThreeMessage()
+			fetchMessage()
 		} catch (error) {
 			console.log('Could not post message: ' + error.message)
 		}
@@ -121,41 +121,26 @@ const Send = ({ fetchMessage }) => {
 	return (
 		<>
 			{kodaMessages && <section>
-				<div className="chat-area">
-					<Message />
-				</div>
 				<input type="text" placeholder="Ditt meddelande..." value={inputValue} onChange={(event) => setInputValue(event.target.value)} />
 				<button onClick={() => { postKoda(inputValue); setInputValue('') }}> Skicka </button>
 			</section>}
 
 			{randomMessages && <section>
-				<div className="chat-area">
-					<Message />
-				</div>
 				<input type="text" placeholder="Ditt meddelande..." value={inputValue} onChange={(event) => setInputValue(event.target.value)} />
 				<button onClick={() => { postRandom(inputValue); setInputValue('') }}> Skicka </button>
 			</section>}
 
 			{gruppOneMessages && <section>
-				<div className="chat-area">
-					<Message />
-				</div>
 				<input type="text" placeholder="Ditt meddelande..." value={inputValue} onChange={(event) => setInputValue(event.target.value)} />
 				<button onClick={() => { postGruppOne(inputValue); setInputValue('') }}> Skicka </button>
 			</section>}
 
 			{gruppTwoMessages && <section>
-				<div className="chat-area">
-					<Message />
-				</div>
 				<input type="text" placeholder="Ditt meddelande..." value={inputValue} onChange={(event) => setInputValue(event.target.value)} />
 				<button onClick={() => { postGruppTwo(inputValue); setInputValue('') }}> Skicka </button>
 			</section>}
 
 			{gruppThreeMessages && <section>
-				<div className="chat-area">
-					<Message />
-				</div>
 				<input type="text" placeholder="Ditt meddelande..." value={inputValue} onChange={(event) => setInputValue(event.target.value)} />
 				<button onClick={() => { postGruppThree(inputValue); setInputValue('') }}> Skicka </button>
 			</section>}

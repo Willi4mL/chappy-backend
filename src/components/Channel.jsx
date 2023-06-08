@@ -163,7 +163,14 @@ const Channel = () => {
 					)}
 				</ul>
 			</nav>
-			<Send fetchMessage={{ fetchKodaMessage, fetchRandomMessage, fetchGruppOneMessage, fetchGruppTwoMessage, fetchGruppThreeMessage }} />
+			<Message
+				fetchKodaMessage={fetchKodaMessage}
+				fetchRandomMessage={fetchRandomMessage}
+				fetchGruppOneMessage={fetchGruppOneMessage}
+				fetchGruppTwoMessage={fetchGruppTwoMessage}
+				fetchGruppThreeMessage={fetchGruppThreeMessage}
+			/>
+
 		</>
 	)
 }
