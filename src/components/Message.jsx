@@ -1,9 +1,10 @@
 import { isKodaState, isRandomState, isGruppOneState, isGruppTwoState, isGruppThreeState } from "../../backend/data/recoil"
 import { useRecoilState } from "recoil"
+import Send from "./Send"
 
 const Message = () => {
 	const [kodaMessages, setKodaMessages] = useRecoilState(isKodaState)
-	const [ranomMessages, setRandomMessages] = useRecoilState(isRandomState)
+	const [randomMessages, setRandomMessages] = useRecoilState(isRandomState)
 	const [gruppOneMessages, setGruppOneMessages] = useRecoilState(isGruppOneState)
 	const [gruppTwoMessages, setGruppTwoMessages] = useRecoilState(isGruppTwoState)
 	const [gruppThreeMessages, setGruppThreeMessages] = useRecoilState(isGruppThreeState)
@@ -26,20 +27,17 @@ const Message = () => {
 							</section>
 						</section>
 					))}
-					<section>
-						<input type="text" placeholder="Ditt meddelande..." />
-						<button> Skicka </button>
-					</section>
+					{/* <Send /> */}
 				</div>
 			</>}
 
 			{/* Random message */}
-			{ranomMessages && <>
+			{randomMessages && <>
 				<section className="heading">
 					Chattar i <span className="chat-name"> #random </span>
 				</section>
 				<div className="chat-area">
-					{ranomMessages.messages.map(message => (
+					{randomMessages.messages.map(message => (
 						<section className="history" key={message.id}>
 							<section className="align-right">
 								<p> {message.author}: {message.message} </p>

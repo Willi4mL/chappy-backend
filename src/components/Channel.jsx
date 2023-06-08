@@ -1,11 +1,13 @@
 import { useRecoilState } from 'recoil'
 import { isGruppOneState, isGruppThreeState, isGruppTwoState, isKodaState, isLoginState, isRandomState } from '../../backend/data/recoil.js'
 import Message from './Message.jsx'
+import { useEffect } from 'react'
+import Send from './Send.jsx'
 
 const Channel = () => {
 	const [isLogin, setIsLogin] = useRecoilState(isLoginState)
 	const [kodaMessages, setKodaMessages] = useRecoilState(isKodaState)
-	const [ranomMessages, setRandomMessages] = useRecoilState(isRandomState)
+	const [randomMessages, setRandomMessages] = useRecoilState(isRandomState)
 	const [gruppOneMessages, setGruppOneMessages] = useRecoilState(isGruppOneState)
 	const [gruppTwoMessages, setGruppTwoMessages] = useRecoilState(isGruppTwoState)
 	const [gruppThreeMessages, setGruppThreeMessages] = useRecoilState(isGruppThreeState)
@@ -21,10 +23,19 @@ const Channel = () => {
 			setRandomMessages(false)
 			setGruppOneMessages(false)
 			setGruppTwoMessages(false)
+			setGruppThreeMessages(false)
 		} catch (error) {
 			console.log('Could not fetch messages' + error.message)
 		}
 	}
+	useEffect(() => {
+		fetchKodaMessage()
+	}, [])
+
+	const handleClickKoda = (event) => {
+		event.preventDefault();
+		fetchKodaMessage();
+	  };
 
 	// Fetch random
 	const fetchRandomMessage = async () => {
@@ -96,7 +107,7 @@ const Channel = () => {
 			<nav>
 				<ul>
 					<li> [Kanaler] </li>
-					<li><a href="#" onClick={fetchKodaMessage}>#koda </a></li>
+					<li><a href="#" onClick={handleClickKoda}>#koda </a></li>
 					<li><a href="#" onClick={fetchRandomMessage}> #random </a> </li>
 					{!isLogin ? (
 						<>
@@ -121,6 +132,7 @@ const Channel = () => {
 				</ul>
 			</nav>
 			<Message />
+			<Send fetchKodaMessage={fetchKodaMessage} />
 
 		</>
 	)

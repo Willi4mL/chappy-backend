@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 const Login = () => {
   const [isLogin, setIsLogin] = useRecoilState(isLoginState)
   const [kodaMessages, setKodaMessages] = useRecoilState(isKodaState)
-  const [ranomMessages, setRandomMessages] = useRecoilState(isRandomState)
+  const [randomMessages, setRandomMessages] = useRecoilState(isRandomState)
   const [gruppOneMessages, setGruppOneMessages] = useRecoilState(isGruppOneState)
   const [gruppTwoMessages, setGruppTwoMessages] = useRecoilState(isGruppTwoState)
   const [gruppThreeMessages, setGruppThreeMessages] = useRecoilState(isGruppThreeState)
@@ -34,6 +34,7 @@ const Login = () => {
     setRandomMessages(false)
     setGruppOneMessages(false)
     setGruppTwoMessages(false)
+    setGruppThreeMessages(false)
   }
 
 

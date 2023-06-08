@@ -23,7 +23,6 @@
   ],
   "channelsMembers": [
     {
-      
       "id": 5,
       "name": "grupp1",
       "access": [
@@ -94,6 +93,11 @@
           "author": "Anonym",
           "message": "Lunch",
           "id": 630098
+        },
+        {
+          "author": "Anonym",
+          "message": "ren",
+          "id": 684297
         }
       ]
     },
@@ -107,6 +111,16 @@
           "id": 10
         }
       ]
+    },
+    {
+      "author": "Anonym",
+      "message": "tes",
+      "id": 337770
+    },
+    {
+      "author": "Anonym",
+      "message": "prov",
+      "id": 277649
     }
   ]
 }
