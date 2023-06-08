@@ -31,11 +31,16 @@
         "john",
         "emma"
       ],
-      "messages": [
+      "messagesOne": [
         {
           "author": "",
           "message": "Kul",
           "id": 7
+        },
+        {
+          "author": "Anonym",
+          "message": "rolle",
+          "id": 844231
         }
       ]
     },
@@ -48,11 +53,16 @@
         "john",
         "emma"
       ],
-      "messages": [
+      "messagesTwo": [
         {
           "author": "",
           "message": "Bolla i solen",
           "id": 7
+        },
+        {
+          "author": "Anonym",
+          "message": "ylvle",
+          "id": 291270
         }
       ]
     },
@@ -65,7 +75,7 @@
         "john",
         "emma"
       ],
-      "messages": [
+      "messagesThree": [
         {
           "author": "",
           "message": "Hejsan",
@@ -75,6 +85,11 @@
           "id": 8,
           "author": "",
           "message": "Hej allihopa!"
+        },
+        {
+          "author": "Anonym",
+          "message": "testning grupp 3",
+          "id": 286614
         }
       ]
     }
@@ -91,23 +106,8 @@
         },
         {
           "author": "Anonym",
-          "message": "Lunch",
-          "id": 630098
-        },
-        {
-          "author": "Anonym",
-          "message": "klen",
-          "id": 927366
-        },
-        {
-          "author": "Anonym",
-          "message": "var",
-          "id": 780355
-        },
-        {
-          "author": "Anonym",
-          "message": "kola",
-          "id": 424593
+          "message": "test",
+          "id": 386260
         }
       ]
     },
@@ -122,23 +122,13 @@
         },
         {
           "author": "Anonym",
-          "message": "re",
-          "id": 413332
+          "message": "gött",
+          "id": 708497
         },
         {
           "author": "Anonym",
-          "message": "test",
-          "id": 530714
-        },
-        {
-          "author": "Anonym",
-          "message": "dre",
-          "id": 553140
-        },
-        {
-          "author": "Anonym",
-          "message": "fisk",
-          "id": 912801
+          "message": "haha",
+          "id": 416971
         }
       ]
     },

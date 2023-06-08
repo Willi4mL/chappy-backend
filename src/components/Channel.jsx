@@ -35,7 +35,7 @@ const Channel = () => {
 	const handleClickKoda = (event) => {
 		event.preventDefault()
 		fetchKodaMessage()
-	  }
+	}
 
 	// Fetch random
 	const fetchRandomMessage = async () => {
@@ -59,7 +59,7 @@ const Channel = () => {
 	const handleClickRandom = (event) => {
 		event.preventDefault()
 		fetchRandomMessage()
-	  }
+	}
 
 	// Fetch grupp1
 	const fetchGruppOneMessage = async () => {
@@ -75,6 +75,14 @@ const Channel = () => {
 		} catch (error) {
 			console.log('Could not fetch messages' + error.message)
 		}
+	}
+	useEffect(() => {
+		fetchGruppOneMessage()
+	}, [])
+
+	const handleClickGruppOne = (event) => {
+		event.preventDefault()
+		fetchGruppOneMessage()
 	}
 
 	// Fetch grupp2
@@ -92,6 +100,14 @@ const Channel = () => {
 			console.log('Could not fetch messages' + error.message)
 		}
 	}
+	useEffect(() => {
+		fetchGruppTwoMessage()
+	}, [])
+
+	const handleClickGruppTwo = (event) => {
+		event.preventDefault()
+		fetchGruppTwoMessage()
+	}
 
 	// Fetch grupp3
 	const fetchGruppThreeMessage = async () => {
@@ -107,6 +123,14 @@ const Channel = () => {
 		} catch (error) {
 			console.log('Could not fetch messages' + error.message)
 		}
+	}
+	useEffect(() => {
+		fetchGruppThreeMessage()
+	}, [])
+
+	const handleClickGruppThree = (event) => {
+		event.preventDefault()
+		fetchGruppThreeMessage()
 	}
 
 
@@ -125,9 +149,9 @@ const Channel = () => {
 						</>
 					) : (
 						<>
-							<li className="selected"><a href="#" onClick={fetchGruppOneMessage}> #grupp1 🔑 </a></li>
-							<li className="selected"><a href="#" onClick={fetchGruppTwoMessage}> #grupp2 🔑 </a></li>
-							<li className="selected"><a href="#" onClick={fetchGruppThreeMessage}> #grupp3 🔑 </a></li>
+							<li className="selected"><a href="#" onClick={handleClickGruppOne}> #grupp1 🔑 </a></li>
+							<li className="selected"><a href="#" onClick={handleClickGruppTwo}> #grupp2 🔑 </a></li>
+							<li className="selected"><a href="#" onClick={handleClickGruppThree}> #grupp3 🔑 </a></li>
 							<li> <hr /> </li>
 							<li title="Direktmeddelanden"> [DM] </li>
 							<li><a href="#">PratgladPelle</a></li>
@@ -139,7 +163,7 @@ const Channel = () => {
 					)}
 				</ul>
 			</nav>
-			<Send fetchMessage={{fetchKodaMessage, fetchRandomMessage}} />
+			<Send fetchMessage={{ fetchKodaMessage, fetchRandomMessage, fetchGruppOneMessage, fetchGruppTwoMessage, fetchGruppThreeMessage }} />
 		</>
 	)
 }

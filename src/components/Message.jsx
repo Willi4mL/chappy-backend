@@ -1,6 +1,5 @@
 import { isKodaState, isRandomState, isGruppOneState, isGruppTwoState, isGruppThreeState } from "../../backend/data/recoil"
 import { useRecoilState } from "recoil"
-import Send from "./Send"
 
 const Message = () => {
 	const [kodaMessages, setKodaMessages] = useRecoilState(isKodaState)
@@ -48,20 +47,14 @@ const Message = () => {
 				<section className="heading">
 					Chattar i <span className="chat-name"> #grupp1 </span>
 				</section>
-				<div className="chat-area">
-					{gruppOneMessages.messages.map(message => (
-						<section className="history" key={message.id}>
-							<section className="align-right">
-								<p> {message.author}: {message.message} </p>
-								<p> 17:46 </p>
-							</section>
+				{gruppOneMessages.messagesOne.map(message => (
+					<section className="history" key={message.id}>
+						<section className="align-right">
+							<p> {message.author}: {message.message} </p>
+							<p> 17:46 </p>
 						</section>
-					))}
-					<section>
-						<input type="text" placeholder="Ditt meddelande..." />
-						<button> Skicka </button>
 					</section>
-				</div>
+				))}
 			</>}
 
 			{/* Grupp 2 message */}
@@ -69,20 +62,14 @@ const Message = () => {
 				<section className="heading">
 					Chattar i <span className="chat-name"> #grupp2 </span>
 				</section>
-				<div className="chat-area">
-					{gruppTwoMessages.messages.map(message => (
-						<section className="history" key={message.id}>
-							<section className="align-right">
-								<p> {message.author}: {message.message} </p>
-								<p> 17:46 </p>
-							</section>
+				{gruppTwoMessages.messagesTwo.map(message => (
+					<section className="history" key={message.id}>
+						<section className="align-right">
+							<p> {message.author}: {message.message} </p>
+							<p> 17:46 </p>
 						</section>
-					))}
-					<section>
-						<input type="text" placeholder="Ditt meddelande..." />
-						<button> Skicka </button>
 					</section>
-				</div>
+				))}
 			</>}
 
 			{/* Grupp 3 message */}
@@ -90,20 +77,14 @@ const Message = () => {
 				<section className="heading">
 					Chattar i <span className="chat-name"> #grupp3 </span>
 				</section>
-				<div className="chat-area">
-					{gruppThreeMessages.messages.map(message => (
-						<section className="history" key={message.id}>
-							<section className="align-right">
-								<p> {message.author}: {message.message} </p>
-								<p> 17:46 </p>
-							</section>
+				{gruppThreeMessages.messagesThree.map(message => (
+					<section className="history" key={message.id}>
+						<section className="align-right">
+							<p> {message.author}: {message.message} </p>
+							<p> 17:46 </p>
 						</section>
-					))}
-					<section>
-						<input type="text" placeholder="Ditt meddelande..." />
-						<button> Skicka </button>
 					</section>
-				</div>
+				))}
 			</>}
 		</>
 	)

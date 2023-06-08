@@ -12,7 +12,7 @@ const Send = ({ fetchMessage }) => {
 	const [gruppThreeMessages, setGruppThreeMessages] = useRecoilState(isGruppThreeState)
 	const [inputValue, setInputValue] = useState('')
 
-	const { fetchKodaMessage, fetchRandomMessage } = fetchMessage
+	const { fetchKodaMessage, fetchRandomMessage, fetchGruppOneMessage, fetchGruppTwoMessage, fetchGruppThreeMessage } = fetchMessage
 
 	// POST koda
 	const postKoda = async (sending) => {
@@ -55,6 +55,69 @@ const Send = ({ fetchMessage }) => {
 		}
 	}
 
+
+
+	// POST Grupp 1
+	const postGruppOne = async (sending) => {
+		try {
+			const response = await fetch(`/api/messagesmemberone`, {
+				method: 'POST',
+				body: JSON.stringify({
+					author: 'Anonym',
+					message: sending
+				}),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+			fetchGruppOneMessage()
+		} catch (error) {
+			console.log('Could not post message: ' + error.message)
+		}
+	}
+
+	// POST Grupp 2
+	const postGruppTwo = async (sending) => {
+		try {
+			const response = await fetch(`/api/messagesmembertwo`, {
+				method: 'POST',
+				body: JSON.stringify({
+					author: 'Anonym',
+					message: sending
+				}),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+			fetchGruppTwoMessage()
+		} catch (error) {
+			console.log('Could not post message: ' + error.message)
+		}
+	}
+
+
+	// POST Grupp 3
+	const postGruppThree = async (sending) => {
+		try {
+			const response = await fetch(`/api/messagesmemberthree`, {
+				method: 'POST',
+				body: JSON.stringify({
+					author: 'Anonym',
+					message: sending
+				}),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+			fetchGruppThreeMessage()
+		} catch (error) {
+			console.log('Could not post message: ' + error.message)
+		}
+	}
+
 	return (
 		<>
 			{kodaMessages && <section>
@@ -74,18 +137,27 @@ const Send = ({ fetchMessage }) => {
 			</section>}
 
 			{gruppOneMessages && <section>
-				<input type="text" placeholder="Ditt meddelande..." />
-				<button> Skicka </button>
+				<div className="chat-area">
+					<Message />
+				</div>
+				<input type="text" placeholder="Ditt meddelande..." value={inputValue} onChange={(event) => setInputValue(event.target.value)} />
+				<button onClick={() => { postGruppOne(inputValue); setInputValue('') }}> Skicka </button>
 			</section>}
 
 			{gruppTwoMessages && <section>
-				<input type="text" placeholder="Ditt meddelande..." />
-				<button> Skicka </button>
+				<div className="chat-area">
+					<Message />
+				</div>
+				<input type="text" placeholder="Ditt meddelande..." value={inputValue} onChange={(event) => setInputValue(event.target.value)} />
+				<button onClick={() => { postGruppTwo(inputValue); setInputValue('') }}> Skicka </button>
 			</section>}
 
 			{gruppThreeMessages && <section>
-				<input type="text" placeholder="Ditt meddelande..." />
-				<button> Skicka </button>
+				<div className="chat-area">
+					<Message />
+				</div>
+				<input type="text" placeholder="Ditt meddelande..." value={inputValue} onChange={(event) => setInputValue(event.target.value)} />
+				<button onClick={() => { postGruppThree(inputValue); setInputValue('') }}> Skicka </button>
 			</section>}
 		</>
 	)
