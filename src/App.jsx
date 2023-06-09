@@ -1,6 +1,5 @@
 import Channel from "./components/Channel"
-import Message from "./components/Message"
-import Login from "./components/login"
+import Login from "./components/Login"
 
 
 function App() {
@@ -13,12 +12,7 @@ function App() {
       </header>
       <main>
         <Channel />
-        
-          {/* <Message /> */}
-          
-      
-      </main>
-
+      </main> 
     </>
   )
 }

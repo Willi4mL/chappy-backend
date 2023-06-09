@@ -13,9 +13,16 @@ import messageMemberOneRouter from './routes/messages/messageMemberOne.js'
 import messageRandomRaouter from './routes/messages/messagesRandom.js'
 import messageMemberTwoRouter from './routes/messages/messagesMemberTwo.js'
 import messageMemberThreeRouter from './routes/messages/messageMemberThree.js'
+import loginRouter from './routes/login.js'
 
 const port = process.env.PORT || 1414
 const app = express()
+
+// JWT
+export const secretName = () => {
+    const seceret = process.env.SECRET || 'qwerty'
+    return seceret
+}
 
 app.use(cors())
 app.use('/api', express.json())  // gör så att vi kan använda req.body
@@ -30,6 +37,7 @@ app.use(express.static(pathToStaticFolder))
 
 app.use('/api/home', homeRouter)
 app.use('/api/users', userRouter)
+app.use('/api/login', loginRouter)
 app.use('/api/channels', channelRouter)
 app.use('/api/channelsmember', channelMemeberRouter)
 app.use('/api/messages', messageRouter)

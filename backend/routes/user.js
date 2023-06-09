@@ -1,6 +1,7 @@
 import express from 'express'
 import { getDb } from '../data/database.js'
 import {  isAuthorizedUser } from '../data/validation.js'
+import { generateId } from '../data/validation.js'
 
 const router = express.Router()
 const db = getDb() 
@@ -47,14 +48,14 @@ router.delete('/:id', async (req, res) => {
     await db.write()
 
     res.sendStatus(200)
-});
+})
 
 ///POST
 router.post('/', async (req, res) => {
     let addUser = req.body
 
     await db.read()
-    addUser.id = Math.floor(Math.random() * 100000)
+    addUser.id = generateId()
     db.data.users.push(addUser)
     await db.write()
     res.send({ id: addUser.id })

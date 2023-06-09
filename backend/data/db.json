@@ -70,6 +70,11 @@
           "author": "Anonym",
           "message": "Påven",
           "id": 785749
+        },
+        {
+          "author": "Anonym",
+          "message": "kalle",
+          "id": 559712
         }
       ]
     }
@@ -83,6 +88,16 @@
           "author": "Anonym",
           "message": "knut knyter en knut",
           "id": 878527
+        },
+        {
+          "author": "Anonym",
+          "message": "polle",
+          "id": 394762
+        },
+        {
+          "author": "Anonym",
+          "message": "kaekfne",
+          "id": 391327
         }
       ]
     },
@@ -92,18 +107,18 @@
       "messagesRandom": [
         {
           "author": "Anonym",
-          "message": "gött",
-          "id": 708497
-        },
-        {
-          "author": "Anonym",
-          "message": "kul",
-          "id": 922476
-        },
-        {
-          "author": "Anonym",
           "message": "Berra",
           "id": 318725
+        },
+        {
+          "author": "Anonym",
+          "message": "kolla",
+          "id": 362860
+        },
+        {
+          "author": "Anonym",
+          "message": "grdr",
+          "id": 284492
         }
       ]
     }

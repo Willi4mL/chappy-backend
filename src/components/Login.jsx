@@ -24,7 +24,7 @@ const Login = () => {
     fetchUserData()
   }, [])
 
-  const handleLogin = () => {
+  const handleLogin = async () => {   
     setIsLogin(true)
   }
 
