@@ -3,8 +3,6 @@ import jwt from 'jsonwebtoken'
 import { getDb } from '../data/database.js'
 import { secretName } from '../server.js'
 
-const { sign } = jwt;
-
 const router = express.Router()
 const db = getDb()
 
@@ -16,7 +14,7 @@ router.post('/', async (req, res) => {
 
   const { username, password } = req.body
 
-  await db.read();
+  await db.read()
   const user = db.data.users.find(
     (user) => user.username === username && user.password === password
   )
@@ -27,10 +25,44 @@ router.post('/', async (req, res) => {
     return
   }
 
+  const time = 60 * 60
   const payload = { userId: user.id }
-  const token = jwt.sign(payload, secretName())
+  const options = { expiresIn: 2 * time}
+  const token = jwt.sign(payload, secretName(), options)
+  console.log('Signed jwt: ', token)
+  let tokenPackage = { token: token}
 
-  res.send({ token })
+  res.send(tokenPackage)
+
+
+  // GET /secret
+router.get('/', (req, res) => {
+	let authHeader = req.headers.authorization
+	// console.log('Secret 1: ', authHeader)
+	if( !authHeader ) {
+		res.status(401).send({
+			message: 'You must be authenticated to view this very secret data.'
+		})
+	}
+
+	let token = authHeader.replace('Bearer: ', '')
+
+	try {
+		let decoded = jwt.verify(token, secretName())
+		console.log('GET /secret decoded: ', decoded)
+		let userId = decoded.userId
+		let user = db.data.users.find(u => u.id === userId)
+		console.log(`User "${user.username}" has access to secret data.`)
+		
+		return res.send({
+			message: 'This is secret data. Because you are authenticated.'
+		})
+
+	} catch(error) {
+		console.log('GET /secret error: ' + error.message)
+		res.sendStatus(401)
+	}
+})
 })
 
 export default router

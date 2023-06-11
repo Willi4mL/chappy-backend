@@ -11,45 +11,37 @@ const Login = () => {
   const [gruppThreeMessages, setGruppThreeMessages] = useRecoilState(isGruppThreeState)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [message, setMessage] = useState('')
 
-  const sessionStorageKey = 'jwt'
+  const sessionStorageKey = 'chappy-jwt'
 
   useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await fetch('/api/users')
-        const data = await response.json()
-        const user = data.users
-        console.log(user)
-      } catch (error) {
-        console.log('Could not fetch users' + error.message)
-      }
+    if (sessionStorage.getItem(sessionStorageKey)) {
+      setIsLogin(true)
     }
-    fetchUserData()
   }, [])
 
   const handleLogin = async () => {
-    try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-      })
-
-      if (response.ok) {
-        const data = await response.json()
-        const jwt = data.token
-
-        sessionStorage.setItem(sessionStorageKey, jwt)
-        setIsLogin(true);
-      } else {
-        console.log('Login failed')
-      }
-    } catch (error) {
-      console.log('Error during login:', error)
+    let options = {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ username, password })
     }
+
+    const response = await fetch('/api/login', options)
+    if (response.status !== 200) {
+      setMessage('Failed to login!')
+      console.log('Login failed with status: ', response.status)
+      return
+    }
+
+    const data = await response.json()
+    let jwt = data.token
+    sessionStorage.setItem(sessionStorageKey, jwt)
+
+    setIsLogin(true)
   }
 
   const handleLogOut = () => {
@@ -62,6 +54,23 @@ const Login = () => {
     sessionStorage.removeItem(sessionStorageKey)
   }
 
+  const handleGetData = async () => {
+    const sessionStorageKey = 'chappy-jwt'
+
+    let isJwt = sessionStorage.getItem(sessionStorageKey)
+
+    let options = {
+      headers: {}
+    }
+    if (isJwt) {
+      options.headers.Authorization = "Bearer: " + isJwt
+    }
+
+    let response = await fetch('/api/login', options)
+    let data = await response.json()
+    setMessage(data.message)
+    console.log(message)
+  }
 
   return (
     <>
@@ -72,24 +81,25 @@ const Login = () => {
         </div>
       ) : (
         <div className="user-status">
-        <input
-          type="text"
-          id="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+          <input
+            type="text"
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <button onClick={handleLogin}>Logga in</button>
         </div>
       )}
+      <button onClick={handleGetData}>Hämta</button>
     </>
-  );
-};
+  )
+}
 
 export default Login;
 

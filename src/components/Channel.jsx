@@ -12,6 +12,7 @@ const Channel = () => {
 	const [gruppTwoMessages, setGruppTwoMessages] = useRecoilState(isGruppTwoState)
 	const [gruppThreeMessages, setGruppThreeMessages] = useRecoilState(isGruppThreeState)
 
+	const sessionStorageKey = 'chappy-jwt'
 
 	// Fetch koda
 	const fetchKodaMessage = async () => {
@@ -63,17 +64,30 @@ const Channel = () => {
 
 	// Fetch grupp1
 	const fetchGruppOneMessage = async () => {
-		try {
-			const response = await fetch('/api/home')
-			const data = await response.json()
-			const messages = data.channelsMembers.find(channel => channel.name === 'grupp1')
-			setGruppOneMessages(messages)
-			setRandomMessages(false)
-			setKodaMessages(false)
-			setGruppTwoMessages(false)
-			setGruppThreeMessages(false)
-		} catch (error) {
-			console.log('Could not fetch messages' + error.message)
+		let isJwt = sessionStorage.getItem(sessionStorageKey)
+
+		let options = {
+			headers: {}
+		}
+
+		if (isJwt) {
+			console.log(options.headers.Authorization = "Bearer: " + isJwt)
+
+			try {
+				const response = await fetch('/api/home')
+				const data = await response.json()
+				const messages = data.channelsMembers.find(channel => channel.name === 'grupp1')
+				setGruppOneMessages(messages)
+				setRandomMessages(false)
+				setKodaMessages(false)
+				setGruppTwoMessages(false)
+				setGruppThreeMessages(false)
+				console.log('Authorized');
+			} catch (error) {
+				console.log('Could not fetch messages' + error.message)
+			}
+		} else {
+			console.log('Unauthorized')
 		}
 	}
 	useEffect(() => {
@@ -87,17 +101,27 @@ const Channel = () => {
 
 	// Fetch grupp2
 	const fetchGruppTwoMessage = async () => {
-		try {
-			const response = await fetch('/api/home')
-			const data = await response.json()
-			const messages = data.channelsMembers.find(channel => channel.name === 'grupp2')
-			setGruppTwoMessages(messages)
-			setGruppOneMessages(false)
-			setRandomMessages(false)
-			setKodaMessages(false)
-			setGruppThreeMessages(false)
-		} catch (error) {
-			console.log('Could not fetch messages' + error.message)
+		let isJwt = sessionStorage.getItem(sessionStorageKey)
+
+		let options = {
+			headers: {}
+		}
+		if (isJwt) {
+			console.log(options.headers.Authorization = "Bearer: " + isJwt)
+			try {
+				const response = await fetch('/api/home')
+				const data = await response.json()
+				const messages = data.channelsMembers.find(channel => channel.name === 'grupp2')
+				setGruppTwoMessages(messages)
+				setGruppOneMessages(false)
+				setRandomMessages(false)
+				setKodaMessages(false)
+				setGruppThreeMessages(false)
+			} catch (error) {
+				console.log('Could not fetch messages' + error.message)
+			}
+		} else {
+			console.log('Unauthorized')
 		}
 	}
 	useEffect(() => {
@@ -111,17 +135,28 @@ const Channel = () => {
 
 	// Fetch grupp3
 	const fetchGruppThreeMessage = async () => {
-		try {
-			const response = await fetch('/api/home')
-			const data = await response.json()
-			const messages = data.channelsMembers.find(channel => channel.name === 'grupp3')
-			setGruppThreeMessages(messages)
-			setGruppTwoMessages(false)
-			setGruppOneMessages(false)
-			setRandomMessages(false)
-			setKodaMessages(false)
-		} catch (error) {
-			console.log('Could not fetch messages' + error.message)
+		let isJwt = sessionStorage.getItem(sessionStorageKey)
+
+		let options = {
+			headers: {}
+		}
+
+		if (isJwt) {
+			console.log(options.headers.Authorization = "Bearer: " + isJwt)
+			try {
+				const response = await fetch('/api/home')
+				const data = await response.json()
+				const messages = data.channelsMembers.find(channel => channel.name === 'grupp3')
+				setGruppThreeMessages(messages)
+				setGruppTwoMessages(false)
+				setGruppOneMessages(false)
+				setRandomMessages(false)
+				setKodaMessages(false)
+			} catch (error) {
+				console.log('Could not fetch messages' + error.message)
+			}
+		} else {
+			console.log('Unauthorized')
 		}
 	}
 	useEffect(() => {
@@ -143,9 +178,9 @@ const Channel = () => {
 					<li><a href="#" onClick={handleClickRandom}> #random </a> </li>
 					{!isLogin ? (
 						<>
-							<li className="locked"><a href="#"> #grupp1 🔒 </a></li>
-							<li className="locked"><a href="#"> #grupp2 🔒 </a></li>
-							<li className="locked"><a href="#"> #grupp3 🔒 </a></li>
+							<li className="locked" onClick={handleClickGruppOne}><a href="#"> #grupp1 🔒 </a></li>
+							<li className="locked"><a href="#" onClick={handleClickGruppTwo}> #grupp2 🔒 </a></li>
+							<li className="locked"><a href="#" onClick={handleClickGruppThree}> #grupp3 🔒 </a></li>
 						</>
 					) : (
 						<>
