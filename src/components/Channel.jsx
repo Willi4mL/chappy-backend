@@ -1,5 +1,5 @@
 import { useRecoilState } from 'recoil'
-import { isGruppOneState, isGruppThreeState, isGruppTwoState, isKodaState, isLoginState, isRandomState } from '../../backend/data/recoil.js'
+import { isGruppOneState, isGruppThreeState, isGruppTwoState, isKodaState, isLoginState, isRandomState, getUsernameState } from '../../backend/data/recoil.js'
 import Message from './Message.jsx'
 import { useEffect } from 'react'
 import Send from './Send.jsx'
@@ -11,6 +11,7 @@ const Channel = () => {
 	const [gruppOneMessages, setGruppOneMessages] = useRecoilState(isGruppOneState)
 	const [gruppTwoMessages, setGruppTwoMessages] = useRecoilState(isGruppTwoState)
 	const [gruppThreeMessages, setGruppThreeMessages] = useRecoilState(isGruppThreeState)
+	const [loggedInUser, setLoggedInUser] = useRecoilState(getUsernameState)
 
 	const sessionStorageKey = 'chappy-jwt'
 
@@ -92,7 +93,7 @@ const Channel = () => {
 	}
 	useEffect(() => {
 		fetchGruppOneMessage()
-	}, [])
+	}, [setLoggedInUser])
 
 	const handleClickGruppOne = (event) => {
 		event.preventDefault()
@@ -126,7 +127,7 @@ const Channel = () => {
 	}
 	useEffect(() => {
 		fetchGruppTwoMessage()
-	}, [])
+	}, [setLoggedInUser])
 
 	const handleClickGruppTwo = (event) => {
 		event.preventDefault()
@@ -161,7 +162,7 @@ const Channel = () => {
 	}
 	useEffect(() => {
 		fetchGruppThreeMessage()
-	}, [])
+	}, [setLoggedInUser])
 
 	const handleClickGruppThree = (event) => {
 		event.preventDefault()

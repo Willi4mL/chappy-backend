@@ -26,7 +26,7 @@ router.post('/', async (req, res) => {
   }
 
   const time = 60 * 60
-  const payload = { userId: user.id }
+  const payload = { userId: user.id, username: user.username }
   const options = { expiresIn: 2 * time}
   const token = jwt.sign(payload, secretName(), options)
   console.log('Signed jwt: ', token)

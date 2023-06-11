@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { isKodaState, isRandomState, isGruppOneState, isGruppTwoState, isGruppThreeState } from "../../backend/data/recoil"
+import { isKodaState, isRandomState, isGruppOneState, isGruppTwoState, isGruppThreeState, getUsernameState } from "../../backend/data/recoil"
 import { useRecoilState } from "recoil"
 import Message from "./Message"
 
@@ -10,17 +10,18 @@ const Send = ({ fetchMessage }) => {
 	const [gruppOneMessages, setGruppOneMessages] = useRecoilState(isGruppOneState)
 	const [gruppTwoMessages, setGruppTwoMessages] = useRecoilState(isGruppTwoState)
 	const [gruppThreeMessages, setGruppThreeMessages] = useRecoilState(isGruppThreeState)
+	const [loggedInUser, setLoggedInUser] = useRecoilState(getUsernameState)
 	const [inputValue, setInputValue] = useState('')
 
 	const { fetchKodaMessage, fetchRandomMessage, fetchGruppOneMessage, fetchGruppTwoMessage, fetchGruppThreeMessage } = fetchMessage
-
+	let author = loggedInUser || 'Anonym'
 	// POST koda
 	const postKoda = async (sending) => {
 		try {
 			const response = await fetch(`/api/messages`, {
 				method: 'POST',
 				body: JSON.stringify({
-					author: 'Anonym',
+					author: author,
 					message: sending
 				}),
 				headers: {
@@ -41,7 +42,7 @@ const Send = ({ fetchMessage }) => {
 			const response = await fetch(`/api/messagesrandom`, {
 				method: 'POST',
 				body: JSON.stringify({
-					author: 'Anonym',
+					author: author,
 					message: sending
 				}),
 				headers: {
@@ -63,7 +64,7 @@ const Send = ({ fetchMessage }) => {
 			const response = await fetch(`/api/messagesmemberone`, {
 				method: 'POST',
 				body: JSON.stringify({
-					author: 'Anonym',
+					author: author,
 					message: sending
 				}),
 				headers: {
@@ -83,7 +84,7 @@ const Send = ({ fetchMessage }) => {
 			const response = await fetch(`/api/messagesmembertwo`, {
 				method: 'POST',
 				body: JSON.stringify({
-					author: 'Anonym',
+					author: author,
 					message: sending
 				}),
 				headers: {
@@ -104,7 +105,7 @@ const Send = ({ fetchMessage }) => {
 			const response = await fetch(`/api/messagesmemberthree`, {
 				method: 'POST',
 				body: JSON.stringify({
-					author: 'Anonym',
+					author: author,
 					message: sending
 				}),
 				headers: {

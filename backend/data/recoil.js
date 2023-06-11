@@ -34,3 +34,8 @@ export const isGruppThreeState = atom({
 	key: 'isGruppThreeState',
 	default: false
 })
+
+export const getUsernameState = atom({
+	key: 'getUsernameState',
+	default: ''
+})

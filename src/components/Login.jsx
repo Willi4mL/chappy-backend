@@ -1,5 +1,5 @@
 import { useRecoilState } from 'recoil'
-import { isGruppOneState, isGruppThreeState, isGruppTwoState, isKodaState, isLoginState, isRandomState } from '../../backend/data/recoil.js'
+import { getUsernameState, isGruppOneState, isGruppThreeState, isGruppTwoState, isKodaState, isLoginState, isRandomState } from '../../backend/data/recoil.js'
 import { useEffect, useState } from 'react';
 
 const Login = () => {
@@ -9,17 +9,12 @@ const Login = () => {
   const [gruppOneMessages, setGruppOneMessages] = useRecoilState(isGruppOneState)
   const [gruppTwoMessages, setGruppTwoMessages] = useRecoilState(isGruppTwoState)
   const [gruppThreeMessages, setGruppThreeMessages] = useRecoilState(isGruppThreeState)
+  const [loggedInUser, setLoggedInUser] = useRecoilState(getUsernameState)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [message, setMessage] = useState('')
 
   const sessionStorageKey = 'chappy-jwt'
-
-  useEffect(() => {
-    if (sessionStorage.getItem(sessionStorageKey)) {
-      setIsLogin(true)
-    }
-  }, [])
 
   const handleLogin = async () => {
     let options = {
@@ -41,7 +36,10 @@ const Login = () => {
     let jwt = data.token
     sessionStorage.setItem(sessionStorageKey, jwt)
 
+    setLoggedInUser(username)
     setIsLogin(true)
+    setUsername('')
+    setPassword('')
   }
 
   const handleLogOut = () => {
@@ -52,6 +50,7 @@ const Login = () => {
     setGruppTwoMessages(false)
     setGruppThreeMessages(false)
     sessionStorage.removeItem(sessionStorageKey)
+    setLoggedInUser('')
   }
 
   const handleGetData = async () => {
@@ -76,7 +75,7 @@ const Login = () => {
     <>
       {isLogin ? (
         <div className="user-status">
-          <span>Inloggad som VänligaVera</span>
+          <span>Inloggad som {loggedInUser}</span>
           <button onClick={handleLogOut}>Logga ut</button>
         </div>
       ) : (
