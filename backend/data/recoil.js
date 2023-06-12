@@ -39,3 +39,8 @@ export const getUsernameState = atom({
 	key: 'getUsernameState',
 	default: ''
 })
+
+export const addUserState = atom({
+	key: 'addUserState',
+	default: false
+})

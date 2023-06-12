@@ -2,7 +2,6 @@ import { useRecoilState } from 'recoil'
 import { isGruppOneState, isGruppThreeState, isGruppTwoState, isKodaState, isLoginState, isRandomState, getUsernameState } from '../../backend/data/recoil.js'
 import Message from './Message.jsx'
 import { useEffect } from 'react'
-import Send from './Send.jsx'
 
 const Channel = () => {
 	const [isLogin, setIsLogin] = useRecoilState(isLoginState)
@@ -91,6 +90,7 @@ const Channel = () => {
 			console.log('Unauthorized')
 		}
 	}
+	// Fetch when change user
 	useEffect(() => {
 		fetchGruppOneMessage()
 	}, [setLoggedInUser])
@@ -125,6 +125,7 @@ const Channel = () => {
 			console.log('Unauthorized')
 		}
 	}
+	// Fetch when change user
 	useEffect(() => {
 		fetchGruppTwoMessage()
 	}, [setLoggedInUser])
@@ -160,6 +161,7 @@ const Channel = () => {
 			console.log('Unauthorized')
 		}
 	}
+	// Fetch when change user
 	useEffect(() => {
 		fetchGruppThreeMessage()
 	}, [setLoggedInUser])

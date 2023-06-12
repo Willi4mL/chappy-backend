@@ -1,6 +1,6 @@
 import { useRecoilState } from 'recoil'
-import { getUsernameState, isGruppOneState, isGruppThreeState, isGruppTwoState, isKodaState, isLoginState, isRandomState } from '../../backend/data/recoil.js'
-import { useEffect, useState } from 'react';
+import { getUsernameState, isGruppOneState, isGruppThreeState, isGruppTwoState, isKodaState, isLoginState, isRandomState, addUserState } from '../../backend/data/recoil.js'
+import { useState } from 'react';
 
 const Login = () => {
   const [isLogin, setIsLogin] = useRecoilState(isLoginState)
@@ -10,6 +10,7 @@ const Login = () => {
   const [gruppTwoMessages, setGruppTwoMessages] = useRecoilState(isGruppTwoState)
   const [gruppThreeMessages, setGruppThreeMessages] = useRecoilState(isGruppThreeState)
   const [loggedInUser, setLoggedInUser] = useRecoilState(getUsernameState)
+  const [isAddForm, setIsAddForm] = useRecoilState(addUserState) 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [message, setMessage] = useState('')
@@ -71,6 +72,10 @@ const Login = () => {
     console.log(message)
   }
 
+  const openAddForm = () => {
+    setIsAddForm(true)
+  }
+
   return (
     <>
       {isLogin ? (
@@ -96,6 +101,7 @@ const Login = () => {
         </div>
       )}
       <button onClick={handleGetData}>Hämta</button>
+      <button onClick={openAddForm}>Lägg till användare</button>
     </>
   )
 }

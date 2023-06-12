@@ -15,55 +15,69 @@ body {
 	background-color: #FAF6BE;
 	font-size: 125%;
 }
-body input, body button {
+
+body input,
+body button {
 	font-size: 100%;
 }
+
 body a {
 	color: #403BBB;
 }
+
 header {
 	display: flex;
 	flex-direction: row;
 	border-bottom: 1px solid black;
 }
+
 header .user-status {
 	display: flex;
 	flex-direction: column;
 }
+
 h1 {
 	flex-grow: 1;
 	margin-top: 0;
 }
+
 main {
 	flex-grow: 1;
 	display: flex;
 }
+
 nav {
 	padding-right: 1em;
 	border-right: 1px solid gray;
 }
+
 nav ul {
 	list-style-type: none;
 	padding: 0;
 }
+
 nav li.selected {
-/* 	background-color: #F1EFBE; */
+	/* 	background-color: #F1EFBE; */
 	/* border: 1px solid darkgray; */
 	font-weight: bold;
 }
+
 nav li {
 	padding: 0.3em;
-/* 	border: 1px solid #A49E44; */
+	/* 	border: 1px solid #A49E44; */
 	transition: 0.4s all ease-out;
 	display: flex;
-	
+
 }
+
 nav li.locked a {
 	cursor: not-allowed;
 }
+
 nav li:hover {
 	background-color: #F1D67B;
 }
+
 nav li a {
 	display: block;
 }
@@ -71,7 +85,7 @@ nav li a {
 nav .unread {
 	font-family: monospace;
 	display: inline-block;
-/* 	justify-content: center;
+	/* 	justify-content: center;
 	align-items:center; */
 	font-size: 90%;
 	position: relative;
@@ -89,7 +103,8 @@ nav .unread {
 .chat-area {
 	padding-left: 1em;
 }
-.chat-area > * {
+
+.chat-area>* {
 	box-shadow: 0 0em 0.4em silver;
 	border-radius: 1em;
 	padding: 1em;
@@ -102,7 +117,7 @@ nav .unread {
 
 .chat-area .heading {
 	border: none;
-/* 	box-shadow: 0 0.5em 0.3em darkgray; */
+	/* 	box-shadow: 0 0.5em 0.3em darkgray; */
 	box-shadow: none;
 	border-radius: 0;
 	border-bottom: 1px solid black;
@@ -113,17 +128,57 @@ nav .unread {
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
 }
+
 .chat-area :last-child {
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
 }
-.history > section {
+
+.history>section {
 	border-bottom: 1px solid gray;
 	padding: 0.5em 1em;
 }
-.history > section > p {
+
+.history>section>p {
 	margin: 0;
 }
+
 .align-right {
 	text-align: right;
+}
+
+.add-user-container {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 20em;
+	margin: auto;
+	width: 20em;
+	height: 10em;
+	display: flex;
+	flex-direction: column;
+	background-color: #525541;
+	padding: 2em;
+	border-radius: 2em;
+}
+
+.add-user-heading {
+	color: #ffffff;
+}
+
+.add-username {
+	margin: 0.5em 0;
+}
+
+.add-btn-container {
+	margin-top: 0.5em;
+	display: flex;
+	justify-content: space-between;
+}
+
+.add-user-btn,
+.add-close-btn {
+	width: 5em;
+	cursor: pointer;
 }

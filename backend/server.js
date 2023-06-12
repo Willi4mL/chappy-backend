@@ -25,7 +25,7 @@ export const secretName = () => {
 }
 
 app.use(cors())
-app.use('/api', express.json())  // gör så att vi kan använda req.body
+app.use('/api', express.json()) 
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.url}`, req.body);
     next()

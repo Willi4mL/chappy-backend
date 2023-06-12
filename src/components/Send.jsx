@@ -14,7 +14,9 @@ const Send = ({ fetchMessage }) => {
 	const [inputValue, setInputValue] = useState('')
 
 	const { fetchKodaMessage, fetchRandomMessage, fetchGruppOneMessage, fetchGruppTwoMessage, fetchGruppThreeMessage } = fetchMessage
+
 	let author = loggedInUser || 'Anonym'
+	
 	// POST koda
 	const postKoda = async (sending) => {
 		try {

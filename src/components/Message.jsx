@@ -113,7 +113,7 @@ const Message = ({ fetchKodaMessage,
 								<p> {message.author}: {message.message} </p>
 								<p> 17:46 </p>
 							</section>
-							<button className='remove-btn' onClick={() => removeMessage(message.id)}>Remove</button>
+							<button className='remove-btn' onClick={() => removeMessage(message.id)}>Ta bort</button>
 						</section>
 					))}
 					<Send fetchMessage={fetchKodaMessage} />
@@ -132,7 +132,7 @@ const Message = ({ fetchKodaMessage,
 								<p> {message.author}: {message.message} </p>
 								<p> 17:46 </p>
 							</section>
-							<button className='remove-btn' onClick={() => removeRandom(message.id)}>Remove</button>
+							<button className='remove-btn' onClick={() => removeRandom(message.id)}>Ta bort</button>
 						</section>
 					))}
 					<Send fetchMessage={fetchRandomMessage} />
@@ -151,7 +151,7 @@ const Message = ({ fetchKodaMessage,
 								<p> {message.author}: {message.message} </p>
 								<p> 17:46 </p>
 							</section>
-							<button className='remove-btn' onClick={() => removeGruppOne(message.id)}>Remove</button>
+							<button className='remove-btn' onClick={() => removeGruppOne(message.id)}>Ta bort</button>
 						</section>
 					))}
 					<Send fetchMessage={fetchGruppOneMessage} />
@@ -170,7 +170,7 @@ const Message = ({ fetchKodaMessage,
 								<p> {message.author}: {message.message} </p>
 								<p> 17:46 </p>
 							</section>
-							<button className='remove-btn' onClick={() => removeGruppTwo(message.id)}>Remove</button>
+							<button className='remove-btn' onClick={() => removeGruppTwo(message.id)}>Ta bort</button>
 						</section>
 					))}
 					<Send fetchMessage={fetchGruppTwoMessage} />
@@ -189,7 +189,7 @@ const Message = ({ fetchKodaMessage,
 								<p> {message.author}: {message.message} </p>
 								<p> 17:46 </p>
 							</section>
-							<button className='remove-btn' onClick={() => removeGruppThree(message.id)}>Remove</button>
+							<button className='remove-btn' onClick={() => removeGruppThree(message.id)}>Ta bort</button>
 						</section>
 					))}
 					<Send fetchMessage={fetchGruppThreeMessage} />

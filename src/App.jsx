@@ -1,3 +1,4 @@
+import AddUser from "./components/AddUser"
 import Channel from "./components/Channel"
 import Login from "./components/Login"
 
@@ -12,6 +13,7 @@ function App() {
       </header>
       <main>
         <Channel />
+        <AddUser />
       </main> 
     </>
   )
