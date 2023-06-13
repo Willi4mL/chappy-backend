@@ -39,7 +39,7 @@
       "messagesOne": [
         {
           "author": "guest",
-          "message": "der",
+          "message": "ckl",
           "id": 983040
         },
         {
@@ -60,8 +60,8 @@
       ],
       "messagesTwo": [
         {
-          "author": "admin",
-          "message": "Flera fiskar",
+          "author": "guest",
+          "message": "gunter",
           "id": 972759
         },
         {
@@ -82,8 +82,8 @@
       ],
       "messagesThree": [
         {
-          "author": "admin",
-          "message": "Polle",
+          "author": "guest",
+          "message": "ryck",
           "id": 61544
         },
         {
@@ -101,18 +101,13 @@
       "messages": [
         {
           "author": "Anonym",
-          "message": "knut knyter en knut",
+          "message": "test",
           "id": 878527
         },
         {
-          "author": "guest",
-          "message": "tes",
-          "id": 133440
-        },
-        {
           "author": "Anonym",
-          "message": "ser",
-          "id": 464920
+          "message": "mumme",
+          "id": 133440
         }
       ]
     },
@@ -122,7 +117,7 @@
       "messagesRandom": [
         {
           "author": "Anonym",
-          "message": "Berra",
+          "message": "fler",
           "id": 318725
         },
         {

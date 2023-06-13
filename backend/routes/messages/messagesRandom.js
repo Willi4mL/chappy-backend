@@ -93,18 +93,20 @@ router.put('/:id', async (req, res) => {
 
     for (let i = 0; i < channels.length; i++) {
         const messages = channels[i].messagesRandom
-        const index = messages.findIndex(message => message.id === id)
-        if (index !== -1) {
+        if (messages) {
+          const index = messages.findIndex(message => message.id === id)
+          if (index !== -1) {
             const updatedMessage = req.body
             updatedMessage.id = id
             messages[index] = updatedMessage
             await db.write()
             res.sendStatus(200)
             return
+          }
         }
-    }
+      }
 
-    res.sendStatus(404);
+    res.sendStatus(404)
 })
 
 

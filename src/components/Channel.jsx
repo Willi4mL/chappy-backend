@@ -201,6 +201,7 @@ const Channel = () => {
 					)}
 				</ul>
 			</nav>
+			
 			<Message
 				fetchKodaMessage={fetchKodaMessage}
 				fetchRandomMessage={fetchRandomMessage}

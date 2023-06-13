@@ -1,8 +1,6 @@
 import { useState } from "react"
 import { isKodaState, isRandomState, isGruppOneState, isGruppTwoState, isGruppThreeState, getUsernameState } from "../../backend/data/recoil"
 import { useRecoilState } from "recoil"
-import Message from "./Message"
-
 
 const Send = ({ fetchMessage }) => {
 	const [kodaMessages, setKodaMessages] = useRecoilState(isKodaState)
