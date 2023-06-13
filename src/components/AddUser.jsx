@@ -40,7 +40,7 @@ const AddUser = () => {
 			{isAddForm && <div className="add-user-container">
 				<p className="add-user-heading">Lägg till användare</p>
 				<input className="add-username" placeholder="Namn" type="text" value={username} onChange={(e) => setUsername(e.target.value)}></input>
-				<input className="add-password" placeholder="Lösenord" type="text" value={password} onChange={(e) => setPassword(e.target.value)}></input>
+				<input className="add-password" placeholder="Lösenord" type="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
 				<div className="add-btn-container">
 					<button className="add-close-btn" onClick={handleClose}>Avbryt</button>
 					<button className="add-user-btn" onClick={handleAddUser}>Lägg till</button>

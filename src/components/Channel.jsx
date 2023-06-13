@@ -1,7 +1,7 @@
 import { useRecoilState } from 'recoil'
 import { isGruppOneState, isGruppThreeState, isGruppTwoState, isKodaState, isLoginState, isRandomState, getUsernameState } from '../../backend/data/recoil.js'
 import Message from './Message.jsx'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 const Channel = () => {
 	const [isLogin, setIsLogin] = useRecoilState(isLoginState)
@@ -11,6 +11,7 @@ const Channel = () => {
 	const [gruppTwoMessages, setGruppTwoMessages] = useRecoilState(isGruppTwoState)
 	const [gruppThreeMessages, setGruppThreeMessages] = useRecoilState(isGruppThreeState)
 	const [loggedInUser, setLoggedInUser] = useRecoilState(getUsernameState)
+	const [dmUsers, setDmUsers] = useState([])
 
 	const sessionStorageKey = 'chappy-jwt'
 
@@ -172,6 +173,37 @@ const Channel = () => {
 	}
 
 
+	useEffect(() => {
+		handleUser()
+	},[setDmUsers])
+
+	const handleUser = async () => {
+		try {
+			const response = await fetch('/api/users')
+			const data = await response.json()
+			setDmUsers(data)
+		} catch (error) {
+			console.log('Could not fetch messages' + error.message);
+		}
+	}
+
+
+	const removeuser = async (userId) => {
+		try {
+			const response = await fetch(`/api/users/${userId}`, { method: 'DELETE' })
+			if (response.status === 200) {
+
+				handleUser()
+			} else {
+				// Other error occurred
+				throw new Error('An error occurred while deleting the user')
+			}
+		} catch (error) {
+			console.error('An error occurred while deleting the user:', error)
+		}
+	}
+
+
 	return (
 		<>
 			<nav>
@@ -192,16 +224,17 @@ const Channel = () => {
 							<li className="selected"><a href="#" onClick={handleClickGruppThree}> #grupp3 🔑 </a></li>
 							<li> <hr /> </li>
 							<li title="Direktmeddelanden"> [DM] </li>
-							<li><a href="#">PratgladPelle</a></li>
-							<li><a href="#">SocialaSara</a></li>
-							<li><a href="#">TrevligaTommy</a></li>
-							<li><a href="#">VänligaVera</a></li>
-							<li><a href="#">GladaGustav</a></li>
+							{dmUsers.map(user => (
+								<>
+									<li className='selected' key={user.id}> <a href="#">{user.username} </a></li>
+									<button onClick={() => removeuser(user.id)}>Ta bort</button>
+								</>
+							))}
 						</>
 					)}
 				</ul>
 			</nav>
-			
+
 			<Message
 				fetchKodaMessage={fetchKodaMessage}
 				fetchRandomMessage={fetchRandomMessage}

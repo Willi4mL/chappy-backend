@@ -11,19 +11,29 @@
       "password": "pass"
     },
     {
-      "id": 3,
-      "username": "john",
-      "password": "john123"
-    },
-    {
-      "id": 4,
-      "username": "emma",
-      "password": "emma456"
-    },
-    {
-      "username": "totte",
+      "username": "PratgladPelle",
       "password": "123",
-      "id": 592234
+      "id": 251539
+    },
+    {
+      "username": "SocialaSara",
+      "password": "123",
+      "id": 788041
+    },
+    {
+      "username": "TrevligaTommy",
+      "password": "123",
+      "id": 55863
+    },
+    {
+      "username": "VänligaVera",
+      "password": "123",
+      "id": 423813
+    },
+    {
+      "username": "GladaGustav",
+      "password": "123",
+      "id": 184608
     }
   ],
   "channelsMembers": [
