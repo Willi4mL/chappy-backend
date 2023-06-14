@@ -299,7 +299,6 @@ const Message = ({ fetchKodaMessage,
 								<p>
 									{message.author}: {message.message}
 								</p>
-								<p>17:46</p>
 							</section>
 							<div className="change-container">
 								<button className="remove-btn" onClick={() => removeMessage(message.id)}>
@@ -335,7 +334,6 @@ const Message = ({ fetchKodaMessage,
 						<section className="history" key={message.id}>
 							<section className="align-right">
 								<p> {message.author}: {message.message} </p>
-								<p> 17:46 </p>
 							</section>
 							<button className='remove-btn' onClick={() => removeRandom(message.id)}>Ta bort</button>
 
@@ -365,7 +363,6 @@ const Message = ({ fetchKodaMessage,
 						<section className="history" key={message.id}>
 							<section className="align-right">
 								<p> {message.author}: {message.message} </p>
-								<p> 17:46 </p>
 							</section>
 							<button className='remove-btn' onClick={() => removeGruppOne(message.id)}>Ta bort</button>
 
@@ -395,7 +392,6 @@ const Message = ({ fetchKodaMessage,
 						<section className="history" key={message.id}>
 							<section className="align-right">
 								<p> {message.author}: {message.message} </p>
-								<p> 17:46 </p>
 							</section>
 							<button className='remove-btn' onClick={() => removeGruppTwo(message.id)}>Ta bort</button>
 
@@ -425,7 +421,6 @@ const Message = ({ fetchKodaMessage,
 						<section className="history" key={message.id}>
 							<section className="align-right">
 								<p> {message.author}: {message.message} </p>
-								<p> 17:46 </p>
 							</section>
 							<button className='remove-btn' onClick={() => removeGruppThree(message.id)}>Ta bort</button>
 

@@ -74,14 +74,14 @@
       "name": "grupp3",
       "messagesThree": [
         {
-          "author": "guest",
-          "message": "ryck",
-          "id": 61544
+          "author": "admin",
+          "message": "Grus",
+          "id": 147054
         },
         {
           "author": "admin",
-          "message": "tre",
-          "id": 557217
+          "message": "Gånga",
+          "id": 126879
         }
       ]
     }

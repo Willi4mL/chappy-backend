@@ -222,7 +222,7 @@ const Channel = () => {
 							<li className="selected"><a href="#" onClick={handleClickGruppTwo}> #grupp2 🔑 </a></li>
 							<li className="selected"><a href="#" onClick={handleClickGruppThree}> #grupp3 🔑 </a></li>
 							<li> <hr /> </li>
-							<li title="Direktmeddelanden"> [Användere] </li>
+							<li title="Direktmeddelanden"> [Användare] </li>
 							{dmUsers.map(user => (
 								<div className='user-container' key={user.id}>
 									<li className='selected'> <a href="#">{user.username} </a></li>
