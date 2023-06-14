@@ -75,8 +75,6 @@ const Channel = () => {
 		}
 
 		if (isJwt) {
-			console.log(options.headers.Authorization = "Bearer: " + isJwt)
-
 			try {
 				const response = await fetch('/api/home')
 				const data = await response.json()
@@ -112,7 +110,6 @@ const Channel = () => {
 			headers: {}
 		}
 		if (isJwt) {
-			console.log(options.headers.Authorization = "Bearer: " + isJwt)
 			try {
 				const response = await fetch('/api/home')
 				const data = await response.json()
@@ -148,7 +145,6 @@ const Channel = () => {
 		}
 
 		if (isJwt) {
-			console.log(options.headers.Authorization = "Bearer: " + isJwt)
 			try {
 				const response = await fetch('/api/home')
 				const data = await response.json()
