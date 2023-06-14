@@ -301,19 +301,22 @@ const Message = ({ fetchKodaMessage,
 								</p>
 								<p>17:46</p>
 							</section>
-							<button className="remove-btn" onClick={() => removeMessage(message.id)}>
-								Ta bort
-							</button>
+							<div className="change-container">
+								<button className="remove-btn" onClick={() => removeMessage(message.id)}>
+									Ta bort
+								</button>
 
-							{/* Change Koda */}
-							{visibleMessageId === message.id ? (
-								<>
-									<input className="change-message-input" value={newMessage} onChange={handleChange} />
-									<button onClick={() => saveChangedMessage(message.id)}>Spara</button>
-								</>
-							) : (
-								<button onClick={() => displayChangeInput(message.id)}>Ändra</button>
-							)}
+								{/* Change Koda */}
+								{visibleMessageId === message.id ? (
+									<>
+										<button onClick={() => saveChangedMessage(message.id)}>Spara</button>
+										<br />
+										<input className="change-message-input" value={newMessage} onChange={handleChange} />
+									</>
+								) : (
+									<button onClick={() => displayChangeInput(message.id)}>Ändra</button>
+								)}
+							</div>
 						</section>
 					))}
 					<Send fetchMessage={fetchKodaMessage} />
@@ -339,8 +342,9 @@ const Message = ({ fetchKodaMessage,
 							{/* Change Random */}
 							{visibleMessageId === message.id ? (
 								<>
-									<input className="change-message-input" value={newMessage} onChange={handleChangeRandom} />
 									<button onClick={() => saveChangedMessageRandom(message.id)}>Spara</button>
+									<br />
+									<input className="change-message-input" value={newMessage} onChange={handleChangeRandom} />
 								</>
 							) : (
 								<button onClick={() => displayChangeInputRandom(message.id)}>Ändra</button>
@@ -368,8 +372,9 @@ const Message = ({ fetchKodaMessage,
 							{/* Change GroupOne */}
 							{visibleMessageId === message.id ? (
 								<>
-									<input className="change-message-input" value={newMessage} onChange={handleChangeGroupOne} />
 									<button onClick={() => saveChangedMessageGroupOne(message.id)}>Spara</button>
+									<br />
+									<input className="change-message-input" value={newMessage} onChange={handleChangeGroupOne} />
 								</>
 							) : (
 								<button onClick={() => displayChangeInputGroupOne(message.id)}>Ändra</button>
@@ -397,8 +402,9 @@ const Message = ({ fetchKodaMessage,
 							{/* Change GroupTwo */}
 							{visibleMessageId === message.id ? (
 								<>
-									<input className="change-message-input" value={newMessage} onChange={handleChangeGroupTwo} />
 									<button onClick={() => saveChangedMessageGroupTwo(message.id)}>Spara</button>
+									<br />
+									<input className="change-message-input" value={newMessage} onChange={handleChangeGroupTwo} />
 								</>
 							) : (
 								<button onClick={() => displayChangeInputGroupTwo(message.id)}>Ändra</button>
@@ -426,8 +432,9 @@ const Message = ({ fetchKodaMessage,
 							{/* Change GroupThree */}
 							{visibleMessageId === message.id ? (
 								<>
-									<input className="change-message-input" value={newMessage} onChange={handleChangeGroupThree} />
 									<button onClick={() => saveChangedMessageGroupThree(message.id)}>Spara</button>
+									<br />
+									<input className="change-message-input" value={newMessage} onChange={handleChangeGroupThree} />
 								</>
 							) : (
 								<button onClick={() => displayChangeInputGroupThree(message.id)}>Ändra</button>

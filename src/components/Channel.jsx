@@ -1,7 +1,9 @@
 import { useRecoilState } from 'recoil'
-import { isGruppOneState, isGruppThreeState, isGruppTwoState, isKodaState, isLoginState, isRandomState, getUsernameState } from '../../backend/data/recoil.js'
+import { isGruppOneState, isGruppThreeState, isGruppTwoState, isKodaState, isLoginState, isRandomState, getUsernameState, addUserState } from '../../backend/data/recoil.js'
 import Message from './Message.jsx'
 import { useEffect, useState } from 'react'
+import { MdClose } from 'react-icons/md';
+import AddUser from './AddUser.jsx';
 
 const Channel = () => {
 	const [isLogin, setIsLogin] = useRecoilState(isLoginState)
@@ -11,6 +13,7 @@ const Channel = () => {
 	const [gruppTwoMessages, setGruppTwoMessages] = useRecoilState(isGruppTwoState)
 	const [gruppThreeMessages, setGruppThreeMessages] = useRecoilState(isGruppThreeState)
 	const [loggedInUser, setLoggedInUser] = useRecoilState(getUsernameState)
+	const [isAddForm, setIsAddForm] = useRecoilState(addUserState)
 	const [dmUsers, setDmUsers] = useState([])
 
 	const sessionStorageKey = 'chappy-jwt'
@@ -175,7 +178,7 @@ const Channel = () => {
 
 	useEffect(() => {
 		handleUser()
-	},[setDmUsers])
+	}, [isAddForm])
 
 	const handleUser = async () => {
 		try {
@@ -223,18 +226,18 @@ const Channel = () => {
 							<li className="selected"><a href="#" onClick={handleClickGruppTwo}> #grupp2 🔑 </a></li>
 							<li className="selected"><a href="#" onClick={handleClickGruppThree}> #grupp3 🔑 </a></li>
 							<li> <hr /> </li>
-							<li title="Direktmeddelanden"> [DM] </li>
+							<li title="Direktmeddelanden"> [Användere] </li>
 							{dmUsers.map(user => (
-								<>
-									<li className='selected' key={user.id}> <a href="#">{user.username} </a></li>
-									<button onClick={() => removeuser(user.id)}>Ta bort</button>
-								</>
+								<div className='user-container' key={user.id}>
+									<li className='selected'> <a href="#">{user.username} </a></li>
+
+									<p className='remove-user' onClick={() => removeuser(user.id)}><MdClose /></p>
+								</div>
 							))}
 						</>
 					)}
 				</ul>
 			</nav>
-
 			<Message
 				fetchKodaMessage={fetchKodaMessage}
 				fetchRandomMessage={fetchRandomMessage}

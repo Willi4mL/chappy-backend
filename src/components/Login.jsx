@@ -100,7 +100,6 @@ const Login = () => {
           <button onClick={handleLogin}>Logga in</button>
         </div>
       )}
-      <button onClick={handleGetData}>Hämta</button>
       <button onClick={openAddForm}>Lägg till användare</button>
     </>
   )

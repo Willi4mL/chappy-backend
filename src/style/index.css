@@ -127,6 +127,7 @@ nav .unread {
 .history {
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
+	height: 8em;
 }
 
 .chat-area :last-child {
@@ -181,4 +182,25 @@ nav .unread {
 .add-close-btn {
 	width: 5em;
 	cursor: pointer;
+}
+
+.user-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+button,
+.remove-user {
+	cursor: pointer;
+}
+
+.invalid-input {
+	background-color: #fdd3d3;
+	border: 1px solid red;
+}
+
+.change-container {
+	
+
 }
