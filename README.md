@@ -21,13 +21,14 @@ This API has been developed specifically for a school assignment that involves c
 Dependencies:
 
     
-        "cors": "^2.8.5",
-        "dotenv": "^16.1.4",
-        "express": "^4.18.2",
-        "jsonwebtoken": "^9.0.0",
-        "lowdb": "^6.0.1",
-        "react": "^18.2.0",
-        "recoil": "^0.7.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.1.4",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "lowdb": "^6.0.1",
+    "react": "^18.2.0",
+    "react-icons": "^4.9.0",
+    "recoil": "^0.7.7"
 
 <br>
 <br>
